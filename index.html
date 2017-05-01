@@ -7,13 +7,60 @@
 
     <title></title>
 
+    <link href="css/icon.css" rel="stylesheet" type="text/css" />
     <link href="css/index.css" rel="stylesheet" type="text/css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" language="javascript" type="text/javascript" ></script>
     <script src="js/index.js" language="javascript" type="text/javascript" ></script>
 
   </head>
   <body lang="zh-tw">
-    <header id="header"></header>
-    <div id="test">test</div>
+    <input type="checkbox" class="interface-status" id="menuStatus" name="menu-status">
+
+    <header id="header">
+      <div class="band">
+        <span class="icon-home"></span>
+        <span>三新電器</span>
+      </div>
+      <label class="menu-button" for="menuStatus">
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+      </label>
+      <div class="keep"></div>
+    </header>
+
+    <div id="main">
+      main
+      <!--<div id="test">test</div>-->
+    </div>
+    <div id="menu">
+      <div class="container">
+        <ul>
+          <li class="group customer active">
+            <span class="icon-users">客戶資料</span>
+            <ul>
+              <li class="sub">
+                <a class="icon-plus">查詢</a>
+              </li>
+              <li class="sub">
+                <a class="icon-plus">新建</a>
+              </li>
+            </ul>
+          </li>
+          <li class="group supplier">
+            <span class="icon-account_balance">廠商資料</span>
+            <ul>
+              <li class="sub">
+                <a class="icon-plus">查詢</a>
+              </li>
+              <li class="sub">
+                <a class="icon-plus">新建</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
   </body>
 </html>

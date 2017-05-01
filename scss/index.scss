@@ -1,10 +1,288 @@
 @import "compass";
+@import "compass/reset";
+@import "lib/custom";
 
-body {
-    color: black;
+* {
+  &, &:after, &:before {
+    vertical-align: top;
+    @include box-sizing(border-box);
+    // @include selection(rgba(150, 200, 255, 1), rgba(255, 255, 255, 1));
+    @include font-smoothing(antialiased);
+  }
+}
+
+html {
+  min-height: 100%;
+
+  body {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+    font-size: medium;
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif,"微軟正黑體", "Microsoft JhengHei";
+    background-color: rgba(235, 235, 235, 1.00);
+    color: rgba(50, 50, 50, 0.8);
+
+    @include font-smoothing(antialiased);
+  }
+}
+
+$headerHeight: 60px;
+$bandWidth: 250px;
+
+.interface-status {
+  position: fixed;
+  top: -999px;
+  left: -999px;
+}
+
+#header {
+  position: fixed;
+  display: inline-block;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  width: 100%;
+  height: $headerHeight;
+  background-color: white;
+  @include clearfix();
+  @include box-shadow(0 2px 5px 0 rgba(0,0,0,0.16));
+
+  > * {
+    display: inline-block;
+    float: left;
+    // border: 1px solid rgba(179, 79, 85, 1.000);
+  }
+  .band {
+    display: inline-block;
+    width: $bandWidth;
+    height: 100%;
+    font-size: 24px;
+    color: white;
+    background-color: rgba(0, 188, 212, 1.000);
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+    white-space: nowrap;
+
+    @include transition(width .3s);
+
+    :first-child {
+      line-height: $headerHeight;
+      margin-right: 5px;
+      @include transition(font-size .3s);
+    }
+    :last-child {
+      letter-spacing: 1px;
+      font-weight: bold;
+      @include opacity(1);
+      @include transition(opacity .3s);
+    }
+  }
+  .menu-button {
+    display: inline-block;
+    width: $headerHeight;
+    height: $headerHeight;
+    padding: 18px;
+    cursor: pointer;
+    .hamburger {
+      position: relative;
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      height: 2px;
+      background-color: black;
+      @include border-radius(5px);
+      @include transition(top .3s, transform .3s, opacity .3s);
+
+      &:nth-child(1) {
+        top: 2px;
+      }
+      &:nth-child(2) {
+        top: 8px;
+      }
+      &:nth-child(3) {
+        top: 14px;
+      }
+      // @for $i from 1 through 3 {
+      //   &:nth-child($i) {
+      //     top: 10px;
+      //   }
+      // }
+    }
+    &:hover {
+      .hamburger {
+        &:nth-child(1) {
+          top: 5px;
+        }
+        &:nth-child(2) {
+          top: 8px;
+        }
+        &:nth-child(3) {
+          top: 11px;
+        }
+      }
+    }
+  }
+  .keep {
+    display: inline-block;
+    width: calc(100% - #{$bandWidth} - #{$headerHeight});
+    height: $headerHeight;
+  }
+}
+
+#main {
+  padding-top: $headerHeight;
+  padding-left: $bandWidth;
+  background-color: rgba(0, 0, 255, .200);
+}
+
+$color: rgba(0, 188, 212, 1.000);
+
+#menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 150;
+  width: $bandWidth;
+  height: 100%;
+  padding-top: $headerHeight;
+  color: white;
+  text-align: left;
+  white-space: nowrap;
+  background-color: $color;
+
+  @include box-shadow(rgba(0, 0, 0, 0.156863) 0px 3px 10px, rgba(0, 0, 0, 0.227451) 0px 3px 10px);
+  @include transition(width .3s);
+
+  > .container {
+    padding: 15px 0;
+    .group {
+      display: block;
+      overflow: hidden;
+      font-size: 20px;
+      > span {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        height: 35px;
+        line-height: 35px;
+        padding: 0 10px;
+        cursor: pointer;
+        @include transition(background-color .3s);
+        &:before {
+          padding-right: 8px;
+        }
+        &:after {
+          content: '\e904';
+          position: absolute;
+          top: 0;
+          right: 10px;
+          @include transition(transform .3s);
+        }
+
+        &:hover {
+          background-color: darken($color, 3%)
+        }
+      }
+      > ul {
+        height: 0;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        @include opacity(0);
+        @include transition(height .3s, padding .3s, margin .3s, opacity .3s);
+
+        border-top: 1px solid rgba(255, 255, 255, .500);
+        border-bottom: 1px solid rgba(255, 255, 255, .500);
+
+        .sub {
+          > a {
+            display: inline-block;
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            padding: 0 10px 0 30px;
+            cursor: pointer;
+            @include transition(background-color .3s);
+            &:before {
+              padding-right: 8px;
+            }
+
+            &:hover {
+              background-color: darken($color, 3%)
+            }
+          }
+        }
+      }
+      &:nth-child(n + 2) {
+        padding-top: 5px;
+      }
+
+
+
+      &.active {
+        > span {
+          &:after {
+            @include rotate(180deg);
+          }
+        }
+        > ul {
+          margin: 8px 0;
+          padding: 4px 0;
+          height: calc(60px + 2px + (4px * 2));
+          @include opacity(1);
+        }
+      }
+    }
+  }
+}
+
+#menuStatus {
+  &:checked {
+    ~ #header {
+      .band {
+        width: $headerHeight;
+        *:first-child {
+          margin-right: 0;
+          font-size: 30px;
+        }
+        *:last-child {
+          display: none;
+          @include opacity(0);
+        }
+      }
+      .menu-button {
+        .hamburger {
+          &:nth-child(1) {
+            top: 10px;
+            @include rotate(45deg);
+          }
+          &:nth-child(2) {
+            @include opacity(0);
+          }
+          &:nth-child(3) {
+            top: 6px;
+            @include rotate(-45deg);
+          }
+        }
+      }
+    }
+    ~ #menu {
+      width: $headerHeight;
+    }
+  }
 }
 
 #test {
-    @include border-radius(10px);
-    background-color: rgba(0, 0, 255, 0.3);
+  // @include border-radius(10px);
+  background-color: rgba(0, 0, 255, 0.3);
 }
