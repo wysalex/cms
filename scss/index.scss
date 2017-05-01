@@ -1,0 +1,10 @@
+@import "compass";
+
+body {
+    color: black;
+}
+
+#test {
+    @include border-radius(10px);
+    background-color: rgba(0, 0, 255, 0.3);
+}
