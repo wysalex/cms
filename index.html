@@ -15,7 +15,7 @@
   </head>
   <body lang="zh-tw">
 
-    <input type="checkbox" class="interface-status" id="menuStatus" name="menu-status">
+    <input type="checkbox" class="interface-status" id="menuStatus" name="menu-status" checked>
 
     <header id="header">
       <div class="band">
@@ -27,6 +27,11 @@
         <span class="hamburger"></span>
         <span class="hamburger"></span>
       </label>
+      <div class="func">
+        <span class="main">客戶資料</span>
+        <span class="to"></span>
+        <span class="sub">查詢</span>
+      </div>
       <div class="keep"></div>
     </header>
 
@@ -36,11 +41,11 @@
     <div id="menu">
       <div class="container">
         <ul>
-          <li class="group customer active">
-            <span class="icon-users">客戶資料</span>
+          <li class="group customer">
+            <div><span class="icon icon-users"></span><span>客戶資料</span></div>
             <ul>
               <li class="sub">
-                <a class="icon-plus">查詢</a>
+                <a class="icon-search">查詢</a>
               </li>
               <li class="sub">
                 <a class="icon-plus">新建</a>
@@ -48,10 +53,10 @@
             </ul>
           </li>
           <li class="group supplier">
-            <span class="icon-account_balance">廠商資料</span>
+            <div><span class="icon icon-account_balance"></span><span>廠商資料</span></div>
             <ul>
               <li class="sub">
-                <a class="icon-plus">查詢</a>
+                <a class="icon-search">查詢</a>
               </li>
               <li class="sub">
                 <a class="icon-plus">新建</a>

@@ -3,7 +3,7 @@
  */
 
 $(function () {
-    $('#menu > .container > ul > li.group > span').on('click', function () {
+    $('#menu > .container > ul > li.group > div').on('click', function () {
         $(this).parent().toggleClass('active');
     });
 });

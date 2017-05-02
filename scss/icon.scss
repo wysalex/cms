@@ -7,12 +7,6 @@
   @include font-smoothing(antialiased);
 }
 
-.icon-minus:before {
-  content: "\e903";
-}
-.icon-plus:before {
-  content: "\e901";
-}
 .icon-keyboard_arrow_up:before {
   content: "\e904";
 }
@@ -36,4 +30,13 @@
 }
 .icon-user-tie:before {
   content: "\e976";
+}
+.icon-search:before {
+  content: "\e986";
+}
+.icon-plus:before {
+  content: "\ea0a";
+}
+.icon-minus:before {
+  content: "\ea0b";
 }
