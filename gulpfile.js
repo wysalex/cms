@@ -28,9 +28,4 @@ gulp.task('watch',function(){
     gulp.watch(['./scss/*.scss'],['compass']);
 });
 
-gulp.task('reload', function() {
-    gulp.src(['./index.html'])
-        .pipe(gulpLivereload());
-});
-
 gulp.task('default',['webserver', 'watch']);
