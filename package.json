@@ -19,5 +19,9 @@
   "devDependencies": {
     "gulp-connect": "^5.0.0",
     "gulp-webserver": "^0.9.1"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-compass": "^2.1.0"
   }
 }
