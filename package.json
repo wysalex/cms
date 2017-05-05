@@ -17,7 +17,11 @@
   },
   "homepage": "https://github.com/wysalex/cms#readme",
   "devDependencies": {
+    "browser-sync": "^2.18.8",
     "gulp-connect": "^5.0.0",
+    "gulp-connect-php": "^1.0.0",
+    "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
     "gulp-webserver": "^0.9.1"
   },
   "dependencies": {
